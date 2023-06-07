@@ -1,5 +1,6 @@
 package com.example.project.pharmacy.service;
 
+import java.util.List;
 import java.util.Objects;
 
 import org.springframework.stereotype.Service;
@@ -40,5 +41,10 @@ public class PharmacyRepositoryService {
 		}
 
 		pharmacy.changePharmacyAddress(address);
+	}
+	
+	@Transactional(readOnly = true)
+	public List<Pharmacy> findAll() {
+		return pharmacyRepository.findAll();
 	}
 }
